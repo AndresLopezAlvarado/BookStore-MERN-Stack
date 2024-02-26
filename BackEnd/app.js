@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import booksRoutes from "./routes/booksRoutes.js";
+import { FRONTEND_URL } from "./config.js";
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use(express.json()); //para que Express entienda los objetos JSON (parsear e
 //     allowedHeaders: ["Content-Type"],
 //   })
 // );
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: FRONTEND_URL, credentials: true }));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {

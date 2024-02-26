@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 import { createAccessToken } from "../libs/jwt.js";
-// import { TOKEN_SECRET } from "../config.js";
+import { TOKEN_SECRET } from "../config.js";
 
 export const register = async (req, res) => {
   const { username, email, password } = req.body;
@@ -90,7 +90,6 @@ export const profile = async (req, res) => {
 };
 
 export const verifyToken = async (req, res) => {
-  const TOKEN_SECRET = process.env.TOKEN_SECRET;
   const { access_token } = req.cookies;
   if (!access_token) return res.status(401).json({ message: "Unauthorized" });
 
