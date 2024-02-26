@@ -10,6 +10,7 @@ import CreateBook from "./pages/CreateBook.jsx";
 import DeleteBook from "./pages/DeleteBook.jsx";
 import EditBook from "./pages/EditBook.jsx";
 import ShowBook from "./pages/ShowBook.jsx";
+import ConfigPage from "./pages/ConfigPage.jsx";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/config" element={<ConfigPage />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/books/create" element={<CreateBook />} />
           <Route path="/books/details/:id" element={<ShowBook />} />

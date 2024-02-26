@@ -1,6 +1,11 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import Cookies from "js-cookie";
-import { registerRequest, loginRequest, verifyTokenRequest } from "../api/auth";
+import {
+  registerRequest,
+  loginRequest,
+  verifyTokenRequest,
+  dataConfigRequest,
+} from "../api/auth";
 
 const AuthContext = createContext();
 
@@ -39,6 +44,15 @@ export const AuthProvider = ({ children }) => {
       }
 
       setErrors([error.response.data.message]);
+    }
+  };
+
+  const dataConfig = async () => {
+    try {
+      const res = await dataConfigRequest();
+      console.log(res);
+    } catch (error) {
+      setErrors(error.response.data);
     }
   };
 
@@ -97,7 +111,16 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signUp, signIn, logout, loading, user, isAuthenticated, errors }}
+      value={{
+        signUp,
+        signIn,
+        logout,
+        dataConfig,
+        loading,
+        user,
+        isAuthenticated,
+        errors,
+      }}
     >
       {children}
     </AuthContext.Provider>
