@@ -106,3 +106,12 @@ export const verifyToken = async (req, res) => {
     });
   });
 };
+
+export const config = (req, res) => {
+  console.log(process.env.PORT);
+  res.send({
+    message: "Esta en el config",
+    port: process.env.PORT,
+    estupido: "aqui no es",
+  });
+};

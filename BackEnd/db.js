@@ -9,14 +9,3 @@ export const connectDB = async () => {
     console.log(error);
   }
 };
-
-// export const connectDB = async () => {
-//   mongoose
-//     .connect(MongoDB_URL)
-//     .then(() => {
-//       console.log("App connected to database.");
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };

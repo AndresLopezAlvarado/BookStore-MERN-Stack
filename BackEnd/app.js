@@ -11,7 +11,7 @@ app.use(express.json()); //para que Express entienda los objetos JSON (parsear e
 // app.use(cors()); //permite al navegador recibir peticiones desde otros servidores (CORS policy)
 // app.use(
 //   cors({                                //permite al navegador recibir peticiones desde otros servidores (CORS policy)
-//     origin: "http://localhost:3000",
+//     origin: "http://localhost:5173",
 //     methods: ["GET", "POST", "PUT", "DELETE"],
 //     allowedHeaders: ["Content-Type"],
 //   })
